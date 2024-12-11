@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="application">
+      <UniqueIdentifier>{e97c5d92-a58a-4393-b782-ccd9e241592d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="file">
+      <UniqueIdentifier>{857ba977-5cb5-48c2-883c-b65c07ad81b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="error">
+      <UniqueIdentifier>{509ec868-ff7b-4e88-864a-cc5a397dfa19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lexical_analyser">
+      <UniqueIdentifier>{7b9048c2-8134-4663-910d-6da733239270}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="syntactic_analyser">
+      <UniqueIdentifier>{3f60d1af-ba77-42b2-94e6-8767adc58945}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="semantic_analyser">
+      <UniqueIdentifier>{be43016f-1974-4f14-bad9-110fd7f1a009}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="code_generator">
+      <UniqueIdentifier>{0ec41387-89b9-47e7-ba36-c706e6f6ebb6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>application</Filter>
+    </ClCompile>
+    <ClCompile Include="file_handler.cpp">
+      <Filter>file</Filter>
+    </ClCompile>
+    <ClCompile Include="error_logger.cpp">
+      <Filter>error</Filter>
+    </ClCompile>
+    <ClCompile Include="mode_handler.cpp">
+      <Filter>application</Filter>
+    </ClCompile>
+    <ClCompile Include="lexical_analyser.cpp">
+      <Filter>lexical_analyser</Filter>
+    </ClCompile>
+    <ClCompile Include="syntax_tree_handler.cpp">
+      <Filter>syntactic_analyser</Filter>
+    </ClCompile>
+    <ClCompile Include="portable_code_generator.cpp">
+      <Filter>code_generator</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="file_handler.hpp">
+      <Filter>file</Filter>
+    </ClInclude>
+    <ClInclude Include="expression_handler.hpp">
+      <Filter>lexical_analyser</Filter>
+    </ClInclude>
+    <ClInclude Include="error_logger.hpp">
+      <Filter>error</Filter>
+    </ClInclude>
+    <ClInclude Include="error_record.hpp">
+      <Filter>error</Filter>
+    </ClInclude>
+    <ClInclude Include="mode_type.hpp">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="mode_handler.hpp">
+      <Filter>application</Filter>
+    </ClInclude>
+    <ClInclude Include="lexical_analyser.hpp">
+      <Filter>lexical_analyser</Filter>
+    </ClInclude>
+    <ClInclude Include="syntactic_analyser.hpp">
+      <Filter>syntactic_analyser</Filter>
+    </ClInclude>
+    <ClInclude Include="syntax_tree_handler.hpp">
+      <Filter>syntactic_analyser</Filter>
+    </ClInclude>
+    <ClInclude Include="semantic_analyser.hpp">
+      <Filter>semantic_analyser</Filter>
+    </ClInclude>
+    <ClInclude Include="portable_code_generator.hpp">
+      <Filter>code_generator</Filter>
+    </ClInclude>
+    <ClInclude Include="postfix_notation_generator.hpp">
+      <Filter>code_generator</Filter>
+    </ClInclude>
+    <ClInclude Include="code_optimizer.hpp">
+      <Filter>code_generator</Filter>
+    </ClInclude>
+    <ClInclude Include="serializer.hpp">
+      <Filter>file</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
