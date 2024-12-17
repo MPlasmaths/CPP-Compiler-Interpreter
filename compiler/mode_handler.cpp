@@ -142,7 +142,6 @@ void ModeHandler::portable_code_generation(const std::string& p_input_expression
 	std::cout << "Portable code generated successfully.\n";
 	FileHandler::write_lines(p_output_symbols_file_name, token_container.describe_symbol_table());
 	std::cout << "Symbols file created.\n";
-	FileHandler::write_lines("output_optimized_tree.txt", SyntaxTreeHandler::compose(modified_syntax_tree_root));
 }
 void ModeHandler::postfix_notation_generation(const std::string& p_input_expression_file_name,
 	const std::string& p_output_postfix_notation_file_name, const std::string& p_output_symbols_file_name) {

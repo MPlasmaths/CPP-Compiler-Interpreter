@@ -22,32 +22,32 @@ int main(int argc, char* argv[]) {
 		}
 
 		if (mode_type == ModeType::LEXICAL_ANALYSIS) {
-			// compiler.exe lex input_expression.txt output_tokens.txt output_symbols.txt
+			// compiler.exe lex files/input_expression.txt files/output_tokens.txt files/output_symbols.txt
 			ModeHandler::lexical_analysis(argv[2], argv[3], argv[4]);
 		} else if (mode_type == ModeType::SYNTACTIC_ANALYSIS) {
-			// compiler.exe syn input_expression.txt output_syntax_tree.txt
+			// compiler.exe syn files/input_expression.txt files/output_syntax_tree.txt
 			ModeHandler::syntactic_analysis(argv[2], argv[3]);
 		} else if (mode_type == ModeType::SEMANTIC_ANALYSIS) {
-			// compiler.exe sem input_expression.txt output_modified_syntax_tree.txt
+			// compiler.exe sem files/input_expression.txt files/output_modified_syntax_tree.txt
 			ModeHandler::semantic_analysis(argv[2], argv[3]);
 		} else if (mode_type == ModeType::PORTABLE_CODE_GENERATION) {
 			if (!ModeHandler::_optimization_enabled) {
-				// compiler.exe gen1 input_expression.txt output_portable_code.txt output_symbols.txt
+				// compiler.exe gen1 files/input_expression.txt files/output_portable_code.txt files/output_symbols.txt
 				ModeHandler::portable_code_generation(argv[2], argv[3], argv[4]);
 			} else {
-				// compiler.exe gen1 opt input_expression.txt output_portable_code.txt output_symbols.txt
+				// compiler.exe gen1 opt files/input_expression.txt files/output_optimized_portable_code.txt files/output_optimized_symbols.txt
 				ModeHandler::portable_code_generation(argv[3], argv[4], argv[5]);
 			}
 		} else if (mode_type == ModeType::POSTFIX_NOTATION_GENERATION) {
 			if (!ModeHandler::_optimization_enabled) {
-				// compiler.exe gen2 input_expression.txt output_postfix_notation.txt output_symbols.txt
+				// compiler.exe gen2 files/input_expression.txt files/output_postfix_notation.txt files/output_symbols.txt
 				ModeHandler::postfix_notation_generation(argv[2], argv[3], argv[4]);
 			} else {
-				// compiler.exe gen2 opt input_expression.txt output_postfix_notation.txt output_symbols.txt
+				// compiler.exe gen2 opt files/input_expression.txt files/output_optimized_postfix_notation.txt files/output_optimized_symbols.txt
 				ModeHandler::postfix_notation_generation(argv[3], argv[4], argv[5]);
 			}
 		} else if (mode_type == ModeType::POST_CODE_GENERATION) {
-			// compiler.exe gen3 input_expression.txt output_post_code.bin
+			// compiler.exe gen3 files/input_expression.txt files/output_post_code.bin
 			ModeHandler::post_code_generation(argv[2], argv[3]);
 		} else {
 			throw std::runtime_error("unknown mode");

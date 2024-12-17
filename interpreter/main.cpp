@@ -4,7 +4,7 @@
 #include <iostream>
 #include <stdexcept>
 
-// interpreter.exe output_post_code.bin
+// interpreter.exe files/output_post_code.bin
 int main(int argc, char* argv[]) {
 	setlocale(LC_ALL, "English");
 

@@ -17,6 +17,23 @@ std::vector<CommandLine> PortableCodeGenerator::generate(
 	_temporary_symbol_table.clear();
 	_symbol_table_size = p_token_container.get_symbol_table().size();
 	process_node(p_root, p_token_container);
+	if (_command_lines.size() == 0) {
+		if (p_token_container.get_symbol_table().size() == 0) {
+			create_temporary_symbol(int());
+			_command_lines.push_back(CommandLine(CommandType::ADD,
+				_temporary_symbol_table.back().get_identifier(), {int(), int()}));
+		} else {
+			if (std::holds_alternative<int>(p_token_container.get_symbol(0).get_value_variant())) {
+				create_temporary_symbol(int());
+				_command_lines.push_back(CommandLine(CommandType::ADD,
+					_temporary_symbol_table.back().get_identifier(), {static_cast<size_t>(0), int()}));
+			} else {
+				create_temporary_symbol(float());
+				_command_lines.push_back(CommandLine(CommandType::ADD,
+					_temporary_symbol_table.back().get_identifier(), {static_cast<size_t>(0), float()}));
+			}
+		}
+	}
 	for (size_t i = 0; i < _temporary_symbol_table.size(); i++) {
 		p_token_container.create_symbol(_temporary_symbol_table[i]);
 	}
