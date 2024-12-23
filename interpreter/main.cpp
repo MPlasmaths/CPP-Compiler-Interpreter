@@ -19,19 +19,21 @@ int main(int argc, char* argv[]) {
 
 		Deserializer::read_binary_file(post_code_file_name, symbol_table, portable_code);
 
-		std::cout << "Enter variables:\n";
-		for (size_t i = 0; i < symbol_table.size(); i++) {
-			if (symbol_table[i].get_name()[0] != '#') {
-				std::cout << symbol_table[i].to_string() << ":\n";
-				float value;
-				std::cin >> value;
-				if (std::holds_alternative<int>(symbol_table[i].get_value_variant())) {
-					if (value != static_cast<int>(value)) {
-						throw std::runtime_error("integer value expected for variable");
+		if (symbol_table.size() > 1) {
+			std::cout << "Enter variables:\n";
+			for (size_t i = 0; i < symbol_table.size(); i++) {
+				if (symbol_table[i].get_name()[0] != '#') {
+					std::cout << symbol_table[i].to_string() << ":\n";
+					float value;
+					std::cin >> value;
+					if (std::holds_alternative<int>(symbol_table[i].get_value_variant())) {
+						if (value != static_cast<int>(value)) {
+							throw std::runtime_error("integer value expected for variable");
+						}
+						symbol_table[i].set_value_variant(static_cast<int>(value));
+					} else {
+						symbol_table[i].set_value_variant(value);
 					}
-					symbol_table[i].set_value_variant(static_cast<int>(value));
-				} else {
-					symbol_table[i].set_value_variant(value);
 				}
 			}
 		}
